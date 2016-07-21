@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Bookstore.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="BookstoreTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Bookstore" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="BookstoreContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Rentals1" EntityType="Bookstore.Rentals" />
+          <EntitySet Name="Books1" EntityType="Bookstore.Books" />
+          <EntitySet Name="Customers1" EntityType="Bookstore.Customers" />
+          <EntitySet Name="Reviews" EntityType="Bookstore.Reviews" />
+          <AssociationSet Name="CustomerRentals" Association="Bookstore.CustomerRentals">
+            <End Role="Customers" EntitySet="Customers1" />
+            <End Role="Rentals" EntitySet="Rentals1" />
+          </AssociationSet>
+          <AssociationSet Name="BooksRentals" Association="Bookstore.BooksRentals">
+            <End Role="Books" EntitySet="Books1" />
+            <End Role="Rentals" EntitySet="Rentals1" />
+          </AssociationSet>
+          <AssociationSet Name="CustomersReviews" Association="Bookstore.CustomersReviews">
+            <End Role="Customers" EntitySet="Customers1" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="BooksReviews" Association="Bookstore.BooksReviews">
+            <End Role="Books" EntitySet="Books1" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Rentals">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RentedDate" Type="String" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Bookstore.CustomerRentals" FromRole="Rentals" ToRole="Customers" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Bookstore.BooksRentals" FromRole="Rentals" ToRole="Books" />
+          <Property Name="BookId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Author" Type="String" Nullable="false" />
+          <Property Name="Cost" Type="String" Nullable="false" />
+          <Property Name="Genre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Rentals" Relationship="Bookstore.BooksRentals" FromRole="Books" ToRole="Rentals" />
+          <NavigationProperty Name="Reviews" Relationship="Bookstore.BooksReviews" FromRole="Books" ToRole="Reviews" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <NavigationProperty Name="Rentals" Relationship="Bookstore.CustomerRentals" FromRole="Customers" ToRole="Rentals" />
+          <NavigationProperty Name="Reviews" Relationship="Bookstore.CustomersReviews" FromRole="Customers" ToRole="Reviews" />
+          <Property Name="Location" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment" Type="String" Nullable="false" />
+          <Property Name="Rating" Type="String" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Bookstore.CustomersReviews" FromRole="Reviews" ToRole="Customers" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Bookstore.BooksReviews" FromRole="Reviews" ToRole="Books" />
+          <Property Name="BookId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CustomerRentals">
+          <End Type="Bookstore.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="Bookstore.Rentals" Role="Rentals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rentals">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BooksRentals">
+          <End Type="Bookstore.Books" Role="Books" Multiplicity="1" />
+          <End Type="Bookstore.Rentals" Role="Rentals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rentals">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomersReviews">
+          <End Type="Bookstore.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="Bookstore.Reviews" Role="Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BooksReviews">
+          <End Type="Bookstore.Books" Role="Books" Multiplicity="1" />
+          <End Type="Bookstore.Reviews" Role="Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Bookstore" />
+        <Alias Key="Target" Value="Bookstore.Store" />
+        <EntityContainerMapping CdmEntityContainer="BookstoreContainer" StorageEntityContainer="BookstoreTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
