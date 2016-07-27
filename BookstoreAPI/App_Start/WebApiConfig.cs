@@ -11,6 +11,9 @@ namespace BookstoreAPI
         {
             // Web API configuration and services
 
+            //Config CORS
+            config.EnableCors();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
