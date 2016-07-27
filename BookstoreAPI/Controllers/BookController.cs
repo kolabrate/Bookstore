@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BookstoreAPI.Models;
+using System.Web.Http.Cors;
 
 namespace BookstoreAPI.Controllers
 {
+    [EnableCors(origins: "http://gumpmail.com.au,https://gumpmail.com.au", headers: "*", methods: "*")]
     [RoutePrefix("api/books")]
     public class BookController : ApiController
     {
