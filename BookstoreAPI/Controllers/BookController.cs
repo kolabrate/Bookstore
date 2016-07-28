@@ -8,8 +8,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using BookstoreAPI.Models;
 using System.Web.Http.Cors;
+using BookstoreAPI.Dto;
+using BookstoreAPI.Models;
+using BookstoreAPI.Filters;
 
 namespace BookstoreAPI.Controllers
 {
@@ -61,20 +63,15 @@ namespace BookstoreAPI.Controllers
         /// <param name="book"></param>
         /// <returns></returns>
         [Route("")]
-        public HttpResponseMessage AddBook([FromBody] Book book)
+        [HttpPost]
+        [ValidateModel]
+        public HttpResponseMessage AddBook([FromBody]Bookdto bookdto)
         {
-
-            if (ModelState.IsValid)
-            {
-                ctx.Books.Add(book);
+              
+            ctx.Books.Add(new Book { Author = bookdto.Author, Cost = bookdto.Cost, Genre = (Genre)Enum.Parse(typeof(Genre), bookdto.Genre), Title = bookdto.Title });
+            ctx.SaveChanges();
+            return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("Book added succ!") };
                 
-            }
-            else
-            {
-                Request.CreateResponse(HttpStatusCode.InternalServerError, "The model is not in the correct format");
-
-            }
-            return new HttpResponseMessage(HttpStatusCode.OK);
 
         }
 

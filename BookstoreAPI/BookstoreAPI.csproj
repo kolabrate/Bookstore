@@ -179,6 +179,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bookstore.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Dto\Bookstoredto.cs" />
+    <Compile Include="Filters\HttpException.cs" />
+    <Compile Include="Filters\ValidateModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
