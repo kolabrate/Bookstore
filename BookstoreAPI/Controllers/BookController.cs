@@ -88,20 +88,12 @@ namespace BookstoreAPI.Controllers
         /// <param name="book"></param>
         /// <returns></returns>
         [HttpDelete]
-        [ResponseType(typeof(Dictionary<int,string>))]
-        public IHttpActionResult DeleteBook([FromBody]int[] IdColl)
+        public HttpResponseMessage DeleteBook([FromBody]int Id)
         {
-            Dictionary<int, string> _respMessages = new Dictionary<int, string>();
-
-            foreach (var item in IdColl)
-            {
-
-                ctx.Books.Remove(ctx.Books.Find(item));
-                _respMessages.Add(item, "Deleted Succ");
-
-            }
+            
+            ctx.Books.Remove(ctx.Books.Find(Id));
             ctx.SaveChanges();
-           return Ok(_respMessages);
+            return new HttpResponseMessage(HttpStatusCode.OK);
             
         }
 
