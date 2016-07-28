@@ -28,10 +28,16 @@ namespace BookstoreAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [Route("")]
-        public IEnumerable<Book> GetAllBooks()
+        public IEnumerable<Bookdto> GetAllBooks()
         {
-    
-            return ctx.Books.ToList();
+
+           var _books = new List<Bookdto>();
+           foreach(var _book in ctx.Books)
+            {
+                _books.Add(new Bookdto { Id = _book.Id, Author = _book.Author, Title = _book.Title, Cost = _book.Cost, Genre = _book.Genre.ToString() });
+
+            }
+            return _books;
 
         }
 
@@ -75,6 +81,31 @@ namespace BookstoreAPI.Controllers
 
         }
 
-        
+
+        /// <summary>
+        /// Delete's list of books
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        [ResponseType(typeof(Dictionary<int,string>))]
+        public IHttpActionResult DeleteBook([FromBody]int[] IdColl)
+        {
+            Dictionary<int, string> _respMessages = new Dictionary<int, string>();
+
+            foreach (var item in IdColl)
+            {
+
+                ctx.Books.Remove(ctx.Books.Find(item));
+                _respMessages.Add(item, "Deleted Succ");
+
+            }
+            ctx.SaveChanges();
+           return Ok(_respMessages);
+            
+        }
+
+      
+
     }
 }

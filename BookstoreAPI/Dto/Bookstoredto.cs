@@ -8,6 +8,9 @@ namespace BookstoreAPI.Dto
 {
     public class Bookdto
     {
+
+        public int? Id { get; set; }
+
         [Required]
         public string Title { get; set; }
 
