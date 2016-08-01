@@ -192,7 +192,7 @@ namespace BookstoreAPI.Models
     }
 
 
-    public class Bookstoreinitialzer : DropCreateDatabaseAlways<Bookstorecontext>
+    public class Bookstoreinitialzer :DropCreateDatabaseIfModelChanges<Bookstorecontext>
     {
 
 

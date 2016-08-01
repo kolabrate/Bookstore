@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -12,6 +8,7 @@ using System.Web.Http.Cors;
 using BookstoreAPI.Dto;
 using BookstoreAPI.Models;
 using BookstoreAPI.Filters;
+
 
 namespace BookstoreAPI.Controllers
 {
@@ -49,19 +46,26 @@ namespace BookstoreAPI.Controllers
         /// <returns></returns>
         [Route("{id:int}")]
         [ResponseType(typeof(Book))]
-        public IHttpActionResult GetBookbyIdName( int Id)
+        public IHttpActionResult GetBookbyIdName(int Id)
         {
             var book = ctx.Books.Find(Id);
 
-            if(book == null)
+            if (book == null)
             {
-                return NotFound();
+                return (IHttpActionResult)new NotImplementedException(string.Format("The Book ID:{0} does not exist ", Id));
+                //return InternalServerError(new Exception(string.Format("Book ID : {0} not found", Id)));
+
+                //var logger = new Filters.ErrorHandler.ErrorLogger();
+                //logger.NotFound(Id);
 
             }
 
-           return Ok(book);
+            return Ok(book);
 
         }
+
+
+        
 
         /// <summary>
         /// Add a new book to bookstore
