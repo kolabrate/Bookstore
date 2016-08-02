@@ -52,8 +52,8 @@ namespace BookstoreAPI.Controllers
 
             if (book == null)
             {
-                return (IHttpActionResult)new NotImplementedException(string.Format("The Book ID:{0} does not exist ", Id));
-                //return InternalServerError(new Exception(string.Format("Book ID : {0} not found", Id)));
+               // return (IHttpActionResult)new NotImplementedException(string.Format("The Book ID:{0} does not exist ", Id));
+               return InternalServerError(new Exception(string.Format("Book ID : {0} not found", Id)));
 
                 //var logger = new Filters.ErrorHandler.ErrorLogger();
                 //logger.NotFound(Id);
