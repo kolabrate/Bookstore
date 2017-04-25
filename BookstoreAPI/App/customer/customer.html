@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<form>
+	<table>
+		<tr>
+			<td><input type="text" name="name"></td>
+			<td><input type="button" name="add" value="Add"  data-bind="click:_addname()"></td>
+		</tr>
+	</table>
+	<select multiple="multiple" data-bind="options: _names"></select>
+</form>
+
+<script type="text/javascript" src="../customer/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../customer/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../customer/knockout/knockout-min.js"></script>
+<script type="text/javascript" src="customer.js?version=1"></script>
+</body>
+</html>

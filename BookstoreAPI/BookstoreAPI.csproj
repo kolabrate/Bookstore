@@ -147,10 +147,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\customer\customer.html" />
+    <Content Include="App\customer\customerModel.js" />
+    <Content Include="App\customer\customerViewModel.js" />
+    <Content Include="App\customer\jquery\jquery.min.js" />
+    <Content Include="App\customer\knockout\knockout-min.js" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.css" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.css" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.min.css" />
+    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App\customer\twitter-bootstrap\js\bootstrap.min.js" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Data\ELMAH.sql" />
     <Content Include="Global.asax" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.css.map" />
+    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +211,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BookController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Data\Bookstore.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -199,6 +227,10 @@
     <Compile Include="Migrations\201607210638458_initial.cs" />
     <Compile Include="Migrations\201607210638458_initial.Designer.cs">
       <DependentUpon>201607210638458_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704250026031_CreateTablesinBookstoreDB.cs" />
+    <Compile Include="Migrations\201704250026031_CreateTablesinBookstoreDB.Designer.cs">
+      <DependentUpon>201704250026031_CreateTablesinBookstoreDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bookstore.cs" />
@@ -238,6 +270,7 @@
       <DependentUpon>Bookstore.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\BookstoreAPI.pubxml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -252,6 +285,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201607210638458_initial.resx">
       <DependentUpon>201607210638458_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704250026031_CreateTablesinBookstoreDB.resx">
+      <DependentUpon>201704250026031_CreateTablesinBookstoreDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
