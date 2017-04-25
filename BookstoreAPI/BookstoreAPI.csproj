@@ -148,28 +148,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\customer\customer.html" />
-    <Content Include="App\customer\customerModel.js" />
-    <Content Include="App\customer\customerViewModel.js" />
+    <Content Include="App\customer\customer.js" />
     <Content Include="App\customer\jquery\jquery.min.js" />
     <Content Include="App\customer\knockout\knockout-min.js" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.css" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.css" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.min.css" />
-    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="App\customer\twitter-bootstrap\js\bootstrap.min.js" />
+    <Content Include="App\customer\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="App\customer\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="App\customer\bootstrap\css\bootstrap.css" />
+    <Content Include="App\customer\bootstrap\css\bootstrap.min.css" />
+    <Content Include="App\customer\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App\customer\bootstrap\js\bootstrap.min.js" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Data\ELMAH.sql" />
     <Content Include="Global.asax" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.css.map" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap-theme.min.css.map" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.css.map" />
-    <Content Include="App\customer\twitter-bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="App\customer\twitter-bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App\customer\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="App\customer\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="App\customer\bootstrap\css\bootstrap.css.map" />
+    <Content Include="App\customer\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="App\customer\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App\customer\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App\customer\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App\customer\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -280,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Google API\mybusiness\" />
     <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
