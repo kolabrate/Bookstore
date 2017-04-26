@@ -5,15 +5,31 @@
 	<meta charset="utf-8" />
 </head>
 <body>
-<form>
-	<table>
-		<tr>
-			<td><input type="text" name="name" data-bind="value:_newval"></td>
-			<td><input type="button" name="add" value="Add" data-bind="click:_addnewval"></td>
-		</tr>
-	</table>
-	<select multiple="multiple" data-bind="options: _names"></select>
-</form>
+<h2>A Nested List</h2>
+
+<ul>
+	<li>categories <button>+</button>
+			<ul>
+				<li><b>fruits</b> <a href="#">Add</a>
+						<ul>
+							<li>mango <a href="#">remove</a></li>
+							<li>apple <a href="#">remove</a></li>
+							<li>peach <a href="#">remove</a></li>
+						</ul>
+				</li>
+				<li><b>vegetables</b><a href="#">Add</a>
+						<ul>
+							<li>carrot <a href="#">remove</a></li>
+							<li>broccoli <a href="#">remove</a></li>
+							<li>cabbage <a href="#">remove</a></li>
+						</ul>
+				</li>
+			</ul>
+	</li>
+
+</ul>
+
+
 
 <script type="text/javascript" src="../customer/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="../customer/bootstrap/js/bootstrap.min.js"></script>

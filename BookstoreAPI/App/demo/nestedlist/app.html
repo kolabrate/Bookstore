@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+<h2>A Nested List</h2>
+
+<ul>
+	<li><button>+</button>categories 
+			<ul data-bind="foreach:categories">
+				<li data-bind="foreach:fruits"><b>fruits</b> <a href="#">Add</a>
+						<ul>
+							<li>mango <a href="#">remove</a></li>
+							<li>apple <a href="#">remove</a></li>
+							
+						</ul>
+				</li>
+				<li data-bind="foreach:vegetables"><b>vegetables</b><a href="#">Add</a>
+						<ul>
+							<li>carrot <a href="#">remove</a></li>
+							<li>broccoli <a href="#">remove</a></li>
+							
+						</ul>
+				</li>
+			</ul>
+	</li>
+
+</ul>
+
+
+
+<script type="text/javascript" src="../../Assets/Libraries/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../Assets/Libraries/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../Assets/Libraries/knockout/knockout-min.js"></script>
+<script type="text/javascript" src="app.js?version=2"></script>
+</body>
+</html>

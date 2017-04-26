@@ -1,22 +1,24 @@
-﻿var vm = function(names){
-var self = this; //use this in KO for managing scope hassle.
+﻿
+var vm = function(names){
+var self = this;
 
-self._names = ko.observableArray(names);
-self._newval = ko.observable(null);
 
-self._addnewval = function(){
-	console.log(self._newval());
-	if(self._newval() != null){
-
-			console.log('inside function');
-			self._names.push(self._newval());
-			self._newval(null);
-
-	}
+self.name = ko.observable("");
+self.names = ko.observableArray(names);
+self.addname = function(){
+	self.names.push(self.name());
+	self.name("");
+};
+self.removename = function(){
+	self.names.pop(self);//remove doesnt work for some reason.
 };
 
 	
 
-};
 
-ko.applyBindings(new vm(['Anand','Maran','Priya']));
+
+}
+
+
+
+ko.applyBindings(new vm(['Anand','Maran']));
