@@ -188,7 +188,7 @@ namespace BookstoreAPI.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Review> Reviews { get; set; }
 
-
+        public System.Data.Entity.DbSet<BookstoreAPI.Models.Business> Businesses { get; set; }
     }
 
 
